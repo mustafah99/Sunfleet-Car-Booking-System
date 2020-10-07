@@ -1,0 +1,13 @@
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\bin\Debug\netcoreapp3.1\Sunfleet Car Terminal.exe
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\bin\Debug\netcoreapp3.1\Sunfleet Car Terminal.deps.json
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\bin\Debug\netcoreapp3.1\Sunfleet Car Terminal.runtimeconfig.json
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\bin\Debug\netcoreapp3.1\Sunfleet Car Terminal.runtimeconfig.dev.json
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\bin\Debug\netcoreapp3.1\Sunfleet Car Terminal.dll
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\bin\Debug\netcoreapp3.1\Sunfleet Car Terminal.pdb
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\obj\Debug\netcoreapp3.1\Sunfleet Car Terminal.AssemblyInfoInputs.cache
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\obj\Debug\netcoreapp3.1\Sunfleet Car Terminal.AssemblyInfo.cs
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\obj\Debug\netcoreapp3.1\Sunfleet Car Terminal.csproj.CoreCompileInputs.cache
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\obj\Debug\netcoreapp3.1\Sunfleet Car Terminal.dll
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\obj\Debug\netcoreapp3.1\Sunfleet Car Terminal.pdb
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\obj\Debug\netcoreapp3.1\Sunfleet Car Terminal.genruntimeconfig.cache
+C:\Workspace\ECUtbildning\C#\Sunfleet Car Terminal\Sunfleet Car Terminal\obj\Debug\netcoreapp3.1\Sunfleet Car Terminal.csprojAssemblyReference.cache
