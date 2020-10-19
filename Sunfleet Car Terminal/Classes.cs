@@ -22,4 +22,10 @@ namespace Sunfleet_Car_Terminal
         //    autoPilot = autopilot;
         //}
     }
+
+    public class TruckRepresentation : VehicleRepresentation
+    {
+        public string capacityCubic { get; set; }
+        public string liftAvailability { get; set; }
+    }
 }

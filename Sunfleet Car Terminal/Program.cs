@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Threading;
 using static System.Console;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace Sunfleet_Car_Terminal
 {
@@ -71,7 +72,10 @@ namespace Sunfleet_Car_Terminal
             List<VehicleRepresentation> allVehicles = new List<VehicleRepresentation>();
 
             // I want to use a dictionary instead of a List in order to save my vehicle informations.
-            Dictionary<string, string> vehicleDictionary = new Dictionary<string, string>();
+            Dictionary<String, String> vehicleDict = new Dictionary<String, String>();
+
+            List<TruckRepresentation> allTrucks = new List<TruckRepresentation>();
+
 
 
             do
@@ -92,75 +96,196 @@ namespace Sunfleet_Car_Terminal
 
                         Clear();
 
-                        bool invalidCarCredentials = true;
+                        WriteLine("1. Car");
+                        WriteLine("2. Truck");
 
-                        do
+                        bool invalidVehicleCredentials = true;
+
+                        ConsoleKeyInfo newInput = ReadKey(true);
+                        if (newInput.Key == ConsoleKey.D1)
                         {
-                            VehicleRepresentation vehicle = new VehicleRepresentation();
-
-                            Write("Registration Number: ");
-                            vehicle.registrationNumber = ReadLine();
-
-                            Write("Brand: ");
-                            vehicle.carBrand = ReadLine();
-
-                            Write("Model: ");
-                            vehicle.vehicleModel = ReadLine();
-
-                            Write("Type (Sedan, Compact, Subcompact): ");
-                            vehicle.vehicleType = ReadLine();
-
-                            Write("Autopilot (Yes, No): ");
-                            vehicle.autoPilot = ReadLine();
-
                             Clear();
-
-                            allVehicles.Add(vehicle);
-
-                            WriteLine("Is this correct? (Y)es (N)o");
-                            WriteLine($"Registration Number: {vehicle.registrationNumber}");
-                            WriteLine($"Brand: {vehicle.carBrand}");
-                            WriteLine($"Model: {vehicle.vehicleModel}");
-                            WriteLine($"Type (Sedan, Compact, Subcompact): {vehicle.vehicleType}");
-                            WriteLine($"Autoupilot (Yes/No): {vehicle.autoPilot}");
-
-                            ConsoleKeyInfo newInput = ReadKey(true);
-
-                            if (newInput.Key == ConsoleKey.Y)
+                            do
                             {
+                                VehicleRepresentation vehicle = new VehicleRepresentation();
+
+                                Write("Registration Number: ");
+                                vehicle.registrationNumber = ReadLine();
+                                //vehicleDict.Add("Registration Number", ReadLine());
+
+                                Write("Brand: ");
+                                vehicle.carBrand = ReadLine();
+
+                                Write("Model: ");
+                                vehicle.vehicleModel = ReadLine();
+
+                                Write("Type (Sedan, Compact, Subcompact): ");
+                                vehicle.vehicleType = ReadLine();
+
+                                Write("Autopilot (Yes, No): ");
+                                vehicle.autoPilot = ReadLine();
+
                                 Clear();
 
-                                WriteLine("Vehicle registered.");
+                                allVehicles.Add(vehicle);
 
-                                Thread.Sleep(2000);
+                                WriteLine("Is this correct? (Y)es (N)o");
+                                WriteLine($"Registration Number: {vehicle.registrationNumber}");
+                                WriteLine($"Brand: {vehicle.carBrand}");
+                                WriteLine($"Model: {vehicle.vehicleModel}");
+                                WriteLine($"Type (Sedan, Compact, Subcompact): {vehicle.vehicleType}");
+                                WriteLine($"Autoupilot (Yes/No): {vehicle.autoPilot}");
 
-                                Clear();
+                                ConsoleKeyInfo newInputs = ReadKey(true);
 
-                                break;
-                            }
-                            else if (newInput.Key == ConsoleKey.N)
+                                // I want to run a code here that checks if the registration number already exists
+                                if (newInputs.Key == ConsoleKey.Y)
+                                {
+                                    Clear();
+
+                                    WriteLine("Vehicle registered.");
+
+                                    Thread.Sleep(2000);
+
+                                    Clear();
+
+                                    break;
+                                }
+                                else if (newInputs.Key == ConsoleKey.N)
+                                {
+                                    Clear();
+                                }
+                            } while (invalidVehicleCredentials);
+                        }
+                        else if (newInput.Key == ConsoleKey.D2)
+                        {
+                            Clear();
+                            do
                             {
+                                TruckRepresentation truckVehicle = new TruckRepresentation();
+
+                                Write("Registration Number: ");
+                                truckVehicle.registrationNumber = ReadLine();
+                                //vehicleDict.Add("Registration Number", ReadLine());
+
+                                Write("Brand: ");
+                                truckVehicle.carBrand = ReadLine();
+
+                                Write("Model: ");
+                                truckVehicle.vehicleModel = ReadLine();
+
+                                Write("Capacity: ");
+                                truckVehicle.capacityCubic = ReadLine();
+
+                                Write("Has Lift: ");
+                                truckVehicle.liftAvailability = ReadLine();
+
                                 Clear();
-                            }
-                        } while (invalidCarCredentials);
+
+                                allTrucks.Add(truckVehicle);
+
+                                WriteLine("Is this correct? (Y)es (N)o");
+                                WriteLine($"Registration Number: {truckVehicle.registrationNumber}");
+                                WriteLine($"Brand: {truckVehicle.carBrand}");
+                                WriteLine($"Model: {truckVehicle.vehicleModel}");
+                                WriteLine($"Capacity: {truckVehicle.capacityCubic}");
+                                WriteLine($"Has Lift: {truckVehicle.liftAvailability}");
+
+                                ConsoleKeyInfo newInputs = ReadKey(true);
+
+                                // I want to run a code here that checks if the registration number already exists
+                                if (newInputs.Key == ConsoleKey.Y)
+                                {
+                                    Clear();
+
+                                    WriteLine("Vehicle registered.");
+
+                                    Thread.Sleep(2000);
+
+                                    Clear();
+
+                                    break;
+                                }
+                                else if (newInputs.Key == ConsoleKey.N)
+                                {
+                                    Clear();
+                                }
+                            } while (invalidVehicleCredentials);
+                        }
 
                         break;
                     case ConsoleKey.D2:
-                        Write("Search for vehicle by license plate: ");
-                        string searchingForVehicle = ReadLine();
+                        WriteLine("Choose Vehicle to Search For: ");
+                        WriteLine("1. Car");
+                        WriteLine("2. Truck");
 
-                        foreach (var veh in allVehicles)
+                        ConsoleKeyInfo carOrTruck = ReadKey(true);
+
+                        if (carOrTruck.Key == ConsoleKey.D1)
                         {
-                            if (veh.registrationNumber == searchingForVehicle)
+                            Clear();
+
+                            Write("Search for vehicle by license plate: ");
+
+                            string searchingForCar = ReadLine();
+
+                            var c = allVehicles.FirstOrDefault(cars => cars.registrationNumber == searchingForCar);
+
+                            if (c == null)
+                            {
+                                WriteLine("Vehicle not found");
+                            }
+                            else
                             {
                                 WriteLine("Value found.");
                                 // write here all the information you want to display.
-                                WriteLine($"Registration Number: {veh.registrationNumber}");
-                                WriteLine($"Brand: {veh.carBrand}");
-                                WriteLine($"Model: {veh.vehicleModel}");
-                                WriteLine($"Type (Sedan, Compact, Subcompact): {veh.vehicleType}");
-                                WriteLine($"Autoupilot: {veh.autoPilot}");
+                                WriteLine($"Registration Number: {c.registrationNumber}");
+                                WriteLine($"Brand: {c.carBrand}");
+                                WriteLine($"Model: {c.vehicleModel}");
+                                WriteLine($"Type (Sedan, Compact, Subcompact): {c.vehicleType}");
+                                WriteLine($"Autoupilot: {c.autoPilot}");
+                                WriteLine(" ");
+                                WriteLine("Press any key to continue");
                             }
+
+                            ReadKey(true);
+
+                            Clear();
+
+                            break;
+                        }
+                        else if (carOrTruck.Key == ConsoleKey.D2)
+                        {
+                            Clear();
+
+                            Write("Search for vehicle by license plate: ");
+
+                            string searchForTruck = ReadLine();
+
+                            var t = allTrucks.FirstOrDefault(trucks => trucks.registrationNumber == searchForTruck);
+
+                            if (t == null)
+                            {
+                                WriteLine("Vehicle not found");
+                            }
+                            else
+                            {
+                                WriteLine("Value found.");
+                                // write here all the information you want to display.
+                                WriteLine($"Registration Number: {t.registrationNumber}");
+                                WriteLine($"Brand: {t.carBrand}");
+                                WriteLine($"Model: {t.vehicleModel}");
+                                WriteLine($"Capacity: {t.capacityCubic}");
+                                WriteLine($"Has Lift: {t.liftAvailability}");
+                                WriteLine(" ");
+                                WriteLine("Press any key to continue");
+                            }
+
+                            ReadKey(true);
+
+                            Clear();
+
+                            break;
                         }
 
                         ReadKey(true);
