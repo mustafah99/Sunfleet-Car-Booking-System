@@ -129,12 +129,15 @@ namespace Sunfleet_Car_Terminal
 
                                 allVehicles.Add(vehicle);
 
-                                WriteLine("Is this correct? (Y)es (N)o");
                                 WriteLine($"Registration Number: {vehicle.registrationNumber}");
                                 WriteLine($"Brand: {vehicle.carBrand}");
                                 WriteLine($"Model: {vehicle.vehicleModel}");
                                 WriteLine($"Type (Sedan, Compact, Subcompact): {vehicle.vehicleType}");
                                 WriteLine($"Autoupilot (Yes/No): {vehicle.autoPilot}");
+
+                                WriteLine(" ");
+
+                                WriteLine("Is this correct? (Y)es (N)o");
 
                                 ConsoleKeyInfo newInputs = ReadKey(true);
 
@@ -184,12 +187,16 @@ namespace Sunfleet_Car_Terminal
 
                                 allTrucks.Add(truckVehicle);
 
-                                WriteLine("Is this correct? (Y)es (N)o");
                                 WriteLine($"Registration Number: {truckVehicle.registrationNumber}");
                                 WriteLine($"Brand: {truckVehicle.carBrand}");
                                 WriteLine($"Model: {truckVehicle.vehicleModel}");
                                 WriteLine($"Capacity: {truckVehicle.capacityCubic}");
                                 WriteLine($"Has Lift: {truckVehicle.liftAvailability}");
+
+                                WriteLine(" ");
+
+                                WriteLine("Is this correct? (Y)es (N)o");
+
 
                                 ConsoleKeyInfo newInputs = ReadKey(true);
 
@@ -237,7 +244,9 @@ namespace Sunfleet_Car_Terminal
                             }
                             else
                             {
+                                Clear();
                                 WriteLine("Value found.");
+                                WriteLine(" ");
                                 // write here all the information you want to display.
                                 WriteLine($"Registration Number: {c.registrationNumber}");
                                 WriteLine($"Brand: {c.carBrand}");
@@ -270,7 +279,9 @@ namespace Sunfleet_Car_Terminal
                             }
                             else
                             {
+                                Clear();
                                 WriteLine("Value found.");
+                                WriteLine(" ");
                                 // write here all the information you want to display.
                                 WriteLine($"Registration Number: {t.registrationNumber}");
                                 WriteLine($"Brand: {t.carBrand}");
