@@ -4,12 +4,16 @@ using System.Text;
 
 namespace Sunfleet_Car_Terminal
 {
-    public class VehicleRepresentation
+    public class Vehicle
     {
         public string registrationNumber { get; set; }
         public string carBrand { get; set; }
         public string vehicleModel { get; set; }
         public string vehicleType { get; set; }
+    }
+
+    public class VehicleRepresentation : Vehicle
+    {
         public string autoPilot { get; set; }
 
         // Class Constructor
@@ -23,7 +27,7 @@ namespace Sunfleet_Car_Terminal
         //}
     }
 
-    public class TruckRepresentation : VehicleRepresentation
+    public class TruckRepresentation : Vehicle
     {
         public string capacityCubic { get; set; }
         public string liftAvailability { get; set; }
